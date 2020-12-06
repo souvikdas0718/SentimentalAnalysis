@@ -63,8 +63,8 @@ def frequencyArticles():
     tabular_data = []
     file = open("semanticAnalysis2.txt", 'r')
     articleList = file.read().split("Reuter")
-    articleSize = [len(x.split()) for x in articleList]
-    canadaCount = [len(re.findall("canada ", x.lower())) for x in articleList]
+    articleSize = [len(word.split()) for word in articleList]
+    canadaCount = [len(re.findall("canada ", word.lower())) for word in articleList]
     filteredArticleList = list(itertools.compress(zip(articleSize, canadaCount), canadaCount))
     print("######################################################################")
     print("Term                                           Canada                 ")
